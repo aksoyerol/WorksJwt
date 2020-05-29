@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorksJwt.Entities", "WorksJwt.Entities\WorksJwt.Entities.csproj", "{BFD855CE-31E5-427D-973A-52E44D0B5BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorksJwt.Dal", "WorksJwt.Dal\WorksJwt.Dal.csproj", "{06BC452A-252A-41F9-981A-5983E2CB2614}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFD855CE-31E5-427D-973A-52E44D0B5BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD855CE-31E5-427D-973A-52E44D0B5BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD855CE-31E5-427D-973A-52E44D0B5BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD855CE-31E5-427D-973A-52E44D0B5BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06BC452A-252A-41F9-981A-5983E2CB2614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BC452A-252A-41F9-981A-5983E2CB2614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BC452A-252A-41F9-981A-5983E2CB2614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BC452A-252A-41F9-981A-5983E2CB2614}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDB6EC87-C6FB-4BDB-ACE9-A7EA5593EE3A}
+	EndGlobalSection
+EndGlobal
