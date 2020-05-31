@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WorksJwt.Entities.Concrete;
 
 namespace WorkJwt.Business.Interfaces
 {
-    interface IAppUserService
+    public interface IAppUserService : IGenericService<AppUser>
     {
     }
 }
