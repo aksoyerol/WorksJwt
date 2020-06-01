@@ -1,8 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using WorkJwt.Business.Concrete;
 using WorkJwt.Business.Interfaces;
+using WorkJwt.Business.ValidationRules.FluentValidation;
 using WorksJwt.Dal.Concrete.EntityFrameworkCore.Repositories;
 using WorksJwt.Dal.Interfaces;
+using WorksJwt.Entities.DTOs.ProductDtos;
 
 namespace WorkJwt.Business.Containers.MicrosoftIoc
 {
@@ -25,6 +28,7 @@ namespace WorkJwt.Business.Containers.MicrosoftIoc
             services.AddScoped<IAppUserRoleDal, EfAppUserRoleRepository>();
             services.AddScoped<IAppUserRoleService, AppUserRoleManager>();
 
+            services.AddTransient<IValidator<ProductAddDto>,ProductAddDtoValidator>();
         }
     }
 }
