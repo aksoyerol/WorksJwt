@@ -13,6 +13,8 @@ namespace WorkJwt.Business.Containers.MicrosoftIoc
     {
         public static void AddDependencies(this IServiceCollection services)
         {
+            services.AddScoped<IJwtService, JwtManager>();
+
             services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
             services.AddScoped(typeof(IGenericDal<>), typeof(EfGenericRepository<>));
 
@@ -29,6 +31,9 @@ namespace WorkJwt.Business.Containers.MicrosoftIoc
             services.AddScoped<IAppUserRoleService, AppUserRoleManager>();
 
             services.AddTransient<IValidator<ProductAddDto>,ProductAddDtoValidator>();
+            services.AddTransient<IValidator<ProductUpdateDto>,ProductUpdateDtoValidator>();
+
+            
         }
     }
 }
