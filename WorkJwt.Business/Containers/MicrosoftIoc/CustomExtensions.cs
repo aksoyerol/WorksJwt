@@ -5,6 +5,7 @@ using WorkJwt.Business.Interfaces;
 using WorkJwt.Business.ValidationRules.FluentValidation;
 using WorksJwt.Dal.Concrete.EntityFrameworkCore.Repositories;
 using WorksJwt.Dal.Interfaces;
+using WorksJwt.Entities.DTOs.AppUserDtos;
 using WorksJwt.Entities.DTOs.ProductDtos;
 
 namespace WorkJwt.Business.Containers.MicrosoftIoc
@@ -32,7 +33,8 @@ namespace WorkJwt.Business.Containers.MicrosoftIoc
 
             services.AddTransient<IValidator<ProductAddDto>,ProductAddDtoValidator>();
             services.AddTransient<IValidator<ProductUpdateDto>,ProductUpdateDtoValidator>();
-
+            services.AddTransient<IValidator<AppUserSigninDto>, AppUserSigninDtoValidator>();
+            services.AddTransient<IValidator<AppUserAddDto>, AppUserAddDtoValidator>();
             
         }
     }

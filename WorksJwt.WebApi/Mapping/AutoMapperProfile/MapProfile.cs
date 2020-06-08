@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WorksJwt.Entities.Concrete;
+using WorksJwt.Entities.DTOs.AppUserDtos;
 using WorksJwt.Entities.DTOs.ProductDtos;
 
 namespace WorksJwt.WebApi.Mapping.AutoMapperProfile
@@ -17,7 +18,9 @@ namespace WorksJwt.WebApi.Mapping.AutoMapperProfile
 
             CreateMap<ProductUpdateDto, Product>();
             CreateMap<Product, ProductUpdateDto>();
-         
+
+            CreateMap<AppUserAddDto, AppUser>();
+            CreateMap<AppUser, AppUserAddDto>();
         }
     }
 }

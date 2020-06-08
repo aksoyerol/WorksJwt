@@ -33,7 +33,7 @@ namespace WorkJwt.Business.Concrete
             claims.Add(new Claim(ClaimTypes.Name, appUser.UserName));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, appUser.Id.ToString()));
 
-            if (roles.Count > 0)
+            if (roles?.Count > 0)
             {
                 foreach (var role in roles)
                 {
