@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using WorkJwt.Business.Containers.MicrosoftIoc;
+using WorkJwt.Business.Interfaces;
 using WorkJwt.Business.StringInfo;
 using WorksJwt.WebApi.CustomFilters;
 
@@ -55,7 +56,8 @@ namespace WorksJwt.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IAppUserService appUserService, IAppUserRoleService appUserRoleService,
+            IAppRoleService appRoleService)
         {
             if (env.IsDevelopment())
             {
@@ -65,6 +67,8 @@ namespace WorksJwt.WebApi
             app.UseRouting();
 
             app.UseExceptionHandler("/Error");
+
+            JwtIdentityInitilazier.Seed(appUserService, appUserRoleService, appRoleService).Wait();
 
             app.UseAuthentication();
             app.UseAuthorization();

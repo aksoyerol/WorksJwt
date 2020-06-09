@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorkJwt.Business.Interfaces;
+using WorkJwt.Business.StringInfo;
 using WorksJwt.Entities.Concrete;
 using WorksJwt.Entities.DTOs.AppUserDtos;
 using WorksJwt.WebApi.CustomFilters;
@@ -53,7 +55,8 @@ namespace WorksJwt.WebApi.Controllers
 
         [HttpPost("[action]")]
         [ValidModel]
-        public async Task<IActionResult> SignUp(AppUserAddDto appUserAddDto)
+        public async Task<IActionResult> SignUp(AppUserAddDto appUserAddDto,[FromServices] IAppRoleService appRoleService,
+            [FromServices] IAppUserRoleService appUserRoleService)
         {
             var appUser = await _appUserService.FindByUserNameAsync(appUserAddDto.UserName);
 
@@ -61,6 +64,18 @@ namespace WorksJwt.WebApi.Controllers
                 return BadRequest($"{appUserAddDto.UserName} already exists");
 
             await _appUserService.InsertAsync(_mapper.Map<AppUser>(appUserAddDto));
+
+            var createdUser = await _appUserService.FindByUserNameAsync(appUserAddDto.UserName);
+            var userRole = await appRoleService.FindByName(RoleInfo.Member);
+
+            await appUserRoleService.InsertAsync(new AppUserRole
+            {
+                AppRoleId = userRole.Id,
+                AppUserId = createdUser.Id
+                
+            });
+
+
             return Created("", appUserAddDto);
         }
 
